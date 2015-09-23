@@ -1,8 +1,14 @@
 OPERATION_NAMES = ("conjunction", "disjunction", "implication", "exclusive", "equivalence")
 
+
 def boolean(x, y, operation):
-    # TODO it didn't make yet
-    return 1 or 0
+    return {
+        'conjunction':  x and y,
+        'disjunction':  x or y,
+        'implication':  (not x) or y,
+        'exclusive':    (not x) == y,
+        'equivalence':  x == y,
+    }.get(operation, 0)
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
