@@ -1,12 +1,15 @@
+import string
+
+
 def check_pangram(text):
-    # TODO incorect algoritgm
-    for letter in text:
-        if letter.isalpha() and text.count(letter) > 1:
+    text = text.lower()
+    for letter in string.ascii_lowercase:
+        if text.count(letter) < 1:
             return False
     return True
 
 if __name__ == '__main__':
+    pass
     # These "asserts" using only for self-checking and not necessary for auto-testing
-    assert check_pangram("The quick brown fox jumps over the lazy dog."), "brown fox"
-    assert not check_pangram("ABCDEF"), "ABC"
-    assert check_pangram("Bored? Craving a pub quiz fix? Why, just come to the Royal Oak!"), "Bored?"
+    assert check_pangram("The quick brown fox jumps over the lazy dog.") == True
+    assert check_pangram("ABCDEF.") == False
